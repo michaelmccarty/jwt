@@ -21,7 +21,6 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
-
 let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/jwtdb";
 
 // Connect to the Mongo DB
@@ -30,9 +29,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 require("./routes/apiRoutes")(app, db);
 require("./routes/htmlRoutes")(app);
 
-
-
 // Start the server
-app.listen(PORT, function () {
+app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
 });
